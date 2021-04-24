@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>My Chart.js Chart</title>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['202001', '202002', '202003', '202004', '202005', '202006','202007','202009','202010','202011','202012','202013','202014','202015','202016','202017','202018','202019'],
+        datasets:[{
+          label:'Forecasted Units',
+          data:[
+            61759,
+            54104,
+            39306,
+            62651,
+            47516,
+            95072,
+            52000,
+            48000,
+            69000,
+            72000,
+            83000,
+            86000,
+            48000,
+            56000,
+            43000,
+            37000,
+            99000,
+            97000
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(20, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Harvest Group Forecasting',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  </script>
+</body>
+</html>
